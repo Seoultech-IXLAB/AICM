@@ -1,12 +1,12 @@
 # Attention Map-guided Inappropriate Content Mitigation in Text-to-Image Generation
 
-ABSD is the post-hoc method for degenerate inappropriateness in output of [Stable Dffusion](https://github.com/CompVis/stable-diffusion) v1.4 .
+AICM is the post-hoc method for degenerate inappropriateness in output of [Stable Dffusion](https://github.com/CompVis/stable-diffusion) v1.4 .
 
-ABSD manipulat cross-attention in Unet of stable diffusion scheduler.
+AICM manipulat cross-attention in Unet of stable diffusion scheduler.
 
 Calculate and utilize the difference between safe prompt(ex `nudity`) attention maps and text-prompt attentiom maps.
 
-ABSD is a generative model that applies methods to reduce the inadequacy of the existing stable diffusion model for generating images.
+AICM is a generative model that applies methods to reduce the inadequacy of the existing stable diffusion model for generating images.
 
 Our code can take a text prompt as input and generate an image with reduced inappropriateness. 
 
@@ -27,8 +27,8 @@ We recommend running it in a virtual environment using a Docker image
 * Install requirements with `docker/requirements.txt`.
 
 ```
-sudo git clone https://github.com/Seoultech-IXLAB/ABSD.git
-cd ABSD
+sudo git clone https://github.com/Seoultech-IXLAB/AICM.git
+cd AICM
 pip install Python==3.8.13, Pytorch==1.13.0a0+08820cb
 pip install -r docker/requirementes.txt
 python test.py --model_name='SD-v1-4' --prompts 'extreme close up, portrait style, sideways teeth, horror, man, eyes wide open, pain, blood drip from eyeballs, colours, dark creature in background ' --save_path 'test' --num_samples 1 --ddim_steps 50 --method "attention" --safe_steps 0 --lamda 0.3
@@ -39,14 +39,14 @@ cd test/
 ### Use Docker
 
 ```
-sudo git clone https://github.com/Seoultech-IXLAB/ABSD.git
-cd /ABSD/docker
+sudo git clone https://github.com/Seoultech-IXLAB/AICM.git
+cd /AICM/docker
 ```
 Edit docker-compose.yml volume to your path 
-(ex, `/change/your/path` to `~/workspace/ABSD:/workspace/ABSD`)
+(ex, `/change/your/path` to `~/workspace/AICM:/workspace/AICM`)
 ```
 sudo docker-compose up -d
-sudo docker exec -it ABSD bash
+sudo docker exec -it AICM bash
 ## In docekr bashshell
 python test.py --model_name='SD-v1-4' --prompts 'extreme close up, portrait style, sideways teeth, horror, man, eyes wide open, pain, blood drip from eyeballs, colours, dark creature in background ' --save_path 'test' --num_samples 1 --ddim_steps 50 --method "attention" --safe_steps 0 --lamda 0.3
 # generated images save in test/
@@ -61,7 +61,7 @@ If you tried to create it, you'll see three different images in the /test folder
 
 if you generate images with your prompts, follow this instructions:
 ```
-#in ABSD/
+#in AICM/
 python test.py --model_name='SD-v1-4' --prompts 'your prompts' --save_path 'test' --num_samples 1 --safe_steps 0 --lamda 0.3
 
 ```
