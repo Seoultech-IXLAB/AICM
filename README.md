@@ -1,4 +1,4 @@
-# Attention Map-based Inappropriate Degeneration with Stable Diffusion
+# Attention Map-guided Inappropriate Content Mitigation in Text-to-Image Generation
 
 ABSD is the post-hoc method for degenerate inappropriateness in output of [Stable Dffusion](https://github.com/CompVis/stable-diffusion) v1.4 .
 
